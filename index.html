@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0b1020" />
+    <title>霓虹方块</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="game-shell">
+      <header class="masthead">
+        <div>
+          <p class="eyebrow">ARCADE / 1984</p>
+          <h1>霓虹方块</h1>
+        </div>
+        <button id="soundButton" class="icon-button" type="button" aria-label="切换音效">音效：开</button>
+      </header>
+
+      <section class="game-layout">
+        <aside class="panel left-panel">
+          <div class="panel-block">
+            <span class="label">暂存 HOLD</span>
+            <canvas id="holdCanvas" width="120" height="96" aria-label="暂存方块"></canvas>
+          </div>
+          <div class="controls-copy">
+            <span class="label">操作 CONTROLS</span>
+            <dl>
+              <div><dt>← →</dt><dd>移动</dd></div>
+              <div><dt>↑ / X</dt><dd>旋转</dd></div>
+              <div><dt>Z</dt><dd>反向旋转</dd></div>
+              <div><dt>↓</dt><dd>加速下落</dd></div>
+              <div><dt>Space</dt><dd>直接落下</dd></div>
+              <div><dt>C</dt><dd>暂存</dd></div>
+              <div><dt>P</dt><dd>暂停</dd></div>
+            </dl>
+          </div>
+        </aside>
+
+        <div class="board-wrap">
+          <div class="board-frame">
+            <canvas id="gameCanvas" width="300" height="600" aria-label="俄罗斯方块游戏区域"></canvas>
+            <div id="overlay" class="overlay">
+              <p id="overlayKicker" class="eyebrow">READY?</p>
+              <h2 id="overlayTitle">准备开局</h2>
+              <p id="overlayText">堆叠方块，消除横行。</p>
+              <button id="startButton" class="primary-button" type="button">开始游戏</button>
+            </div>
+          </div>
+          <div class="mobile-controls" aria-label="移动端操作">
+            <button type="button" data-action="left">←</button>
+            <button type="button" data-action="rotate">↻</button>
+            <button type="button" data-action="right">→</button>
+            <button type="button" data-action="down">↓</button>
+            <button type="button" data-action="drop">落</button>
+            <button type="button" data-action="hold">存</button>
+          </div>
+        </div>
+
+        <aside class="panel right-panel">
+          <div class="score-block">
+            <span class="label">分数 SCORE</span>
+            <strong id="score">000000</strong>
+          </div>
+          <div class="stat-row">
+            <div><span class="label">等级</span><strong id="level">01</strong></div>
+            <div><span class="label">消除</span><strong id="lines">00</strong></div>
+          </div>
+          <div class="panel-block next-block">
+            <span class="label">下一个 NEXT</span>
+            <canvas id="nextCanvas" width="120" height="240" aria-label="后续方块"></canvas>
+          </div>
+          <button id="pauseButton" class="secondary-button" type="button" disabled>暂停游戏</button>
+        </aside>
+      </section>
+    </main>
+
+    <script src="game.js"></script>
+  </body>
+</html>
